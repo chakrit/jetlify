@@ -1,0 +1,28 @@
+---
+kind: pipeline
+type: kubernetes
+name: build
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: build
+  image: docker
+  commands:
+  - docker build -t jetlify .
+  volumes:
+  - name: dockersock
+    path: /var/run/docker.sock
+
+volumes:
+- name: dockersock
+  host:
+    path: /var/run/docker.sock
+
+---
+kind: signature
+hmac: 6738a275b85a44bf36eb7262aeb681fb8abf89ce370c92e0284a734d1b2e889b
+
+...
