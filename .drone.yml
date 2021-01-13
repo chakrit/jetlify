@@ -14,15 +14,15 @@ steps:
   - docker build -t jetlify .
   volumes:
   - name: dockersock
-    path: /var/run/docker.sock
+    path: /var/run/
 
 volumes:
 - name: dockersock
   host:
-    path: /var/run/docker.sock
+    path: /var/run/
 
 ---
 kind: signature
-hmac: 6738a275b85a44bf36eb7262aeb681fb8abf89ce370c92e0284a734d1b2e889b
+hmac: fb9af6d08226f8485823b04fc47c391103d7b14b6efe278f14d273fdd69f3d83
 
 ...
